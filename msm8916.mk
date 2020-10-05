@@ -371,6 +371,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
     mmp.enable.3g2=true
 
+# Offline Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Misc
 PRODUCT_PACKAGES += \
     curl \
