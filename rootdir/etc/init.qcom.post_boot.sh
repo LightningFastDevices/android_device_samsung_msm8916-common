@@ -560,3 +560,113 @@ case "$target" in
         echo $oem_version > /sys/devices/soc0/image_crm_version
         ;;
 esac
+
+
+sleep 3
+
+# IO
+echo 'zen' > /sys/block/mmcblk0/queue/scheduler
+
+# KSM
+echo 'full' > /sys/kernel/mm/uksm/cpu_governor
+
+# Ram Fixes
+stop perfd
+echo '0' > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+echo '80' > /proc/sys/vm/overcommit_ratio
+echo '400' > /proc/sys/vm/vfs_cache_pressure
+echo '24300' > /proc/sys/vm/extra_free_kbytes
+echo '128' > /proc/sys/kernel/random/read_wakeup_threshold
+echo '256' > /proc/sys/kernel/random/write_wakeup_threshold
+echo '128' > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "512" > /sys/block/mmcblk1/queue/read_ahead_kb
+echo '0' > /sys/block/mmcblk0/queue/iostats
+echo '1' > /sys/block/mmcblk0/queue/add_random
+echo '128' > /sys/block/mmcblk1/queue/read_ahead_kb
+echo '0' > /sys/block/mmcblk1/queue/iostats
+echo '1' > /sys/block/mmcblk1/queue/add_random
+echo '4096' > /proc/sys/vm/min_free_kbytes
+echo '0' > /proc/sys/vm/oom_kill_allocating_task
+echo '90' > /proc/sys/vm/dirty_ratio
+echo '70' > /proc/sys/vm/dirty_background_ratio
+
+# Enable Limiter and Thermel
+echo "1" > /sys/kernel/msm_limiter/limiter_enabled
+echo "1" > /sys/kernel/msm_thermal/enabled
+
+# fix cpu permissions
+chmod 644 /sys/devices/system/cpu/cpu0/online
+chmod 644 /sys/devices/system/cpu/cpu1/online
+chmod 644 /sys/devices/system/cpu/cpu2/online
+chmod 644 /sys/devices/system/cpu/cpu3/online
+
+# Set Default Governor and Values
+echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+
+sleep 3
+
+# ZRAM
+echo '35' > /sys/module/zswap/parameters/max_pool_percent
+
+sleep 3
+
+# hotplug
+echo '1' /sys/module/msm_hotplug/msm_enabled
+echo '4' /sys/module/msm_hotplug/max_cpus_online
+echo '3' /sys/module/msm_hotplug/cpus_boosted
+echo '1' /sys/module/msm_hotplug/max_cpus_online_susp
+
+sleep 3
+
+#Fix suddenly reboot issue
+echo 1 > /sys/bus/cpu/devices/cpu0/core_ctl/min_cpus
+echo "0 0 0 0" >/sys/bus/cpu/devices/cpu0/core_ctl/busy_down_thres
+echo "0 0 0 0" >/sys/bus/cpu/devices/cpu0/core_ctl/busy_up_thres
+echo "80 80 80 80" >/sys/bus/cpu/devices/cpu0/core_ctl/busy_up_thres
+echo 1612000 >/sys/bus/cpu/devices/cpu0/cpufreq/scaling_max_freq
+echo 200000 >/sys/bus/cpu/devices/cpu0/cpufreq/scaling_min_freq
+
+sleep 10
+
+#Strict minfree handler tweak
+echo "2048,3072,6144,15360,17920,20480" > /sys/module/lowmemorykiller/parameters/minfree
+
+#Internet speed tweaks
+echo "0" > /proc/sys/net/ipv4/tcp_timestamps
+echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse
+echo "1" > /proc/sys/net/ipv4/tcp_sack
+echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle
+echo "1" > /proc/sys/net/ipv4/tcp_window_scaling
+echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes
+echo "30" > /proc/sys/net/ipv4/tcp_keepalive_intvl
+echo "30" > /proc/sys/net/ipv4/tcp_fin_timeout
+echo "404480" > /proc/sys/net/core/wmem_max
+echo "404480" > /proc/sys/net/core/rmem_max
+echo "256960" > /proc/sys/net/core/rmem_default
+echo "256960" > /proc/sys/net/core/wmem_default
+echo "4096,16384,404480" > /proc/sys/net/ipv4/tcp_wmem
+echo "4096,87380,404480" > /proc/sys/net/ipv4/tcp_rmem
+
+#Vm management tweaks
+echo "4096" > /proc/sys/vm/min_free_kbytes
+echo "0" > /proc/sys/vm/oom_kill_allocating_task
+echo "0" > /proc/sys/vm/panic_on_oom
+echo "0" > /proc/sys/vm/laptop_mode
+echo "0" > /proc/sys/vm/swappiness
+echo "50" > /proc/sys/vm/vfs_cache_pressure
+echo "90" > /proc/sys/vm/dirty_ratio
+echo "70" > /proc/sys/vm/dirty_background_ratio
+
+#Misc kernel tweaks
+echo "8" > /proc/sys/vm/page-cluster
+echo "64000" > /proc/sys/kernel/msgmni
+echo "64000" > /proc/sys/kernel/msgmax
+echo "10" > /proc/sys/fs/lease-break-time
+echo "500,512000,64,2048" > /proc/sys/kernel/sem
+
+#Battery tweaks
+echo "500" > /proc/sys/vm/dirty_expire_centisecs
+echo "1000" > /proc/sys/vm/dirty_writeback_centisecs
