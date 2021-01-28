@@ -1,0 +1,4 @@
+#============= mediadrmserver ==============
+allow mediadrmserver init:binder { call transfer };
+allow mediaserver default_prop:property_service set;
+allow mediaserver device:chr_file { read write };
