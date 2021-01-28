@@ -4,4 +4,5 @@ allow system_server adb_data_file:file { getattr open read };
 allow system_server efs_file:dir search;
 allow system_server init:binder call;
 allow system_server vfat:dir { open read };
+allow system_server app_efs_file:dir search;
 

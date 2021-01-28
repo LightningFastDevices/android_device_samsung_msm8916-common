@@ -2,4 +2,4 @@
 allow ueventd vfat:dir search;
 allow ueventd vfat:file { getattr open read };
 #allow ueventd tmp_root_mount_file:dir search;
-
+allow untrusted_app proc_version:file read;
