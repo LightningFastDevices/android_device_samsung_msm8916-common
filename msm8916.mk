@@ -228,7 +228,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # FM RADIO
-ifeq ($(TARGET_PROVIDES_FM_RADIO),true)
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
     PRODUCT_PACKAGES += \
         init.qcom.fm.sh \
         qcom.fmradio \
@@ -453,7 +453,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 # RIL
-ifeq ($(TARGET_PROVIDES_RIL),true)
+ifeq ($(BOARD_PROVIDES_LIBRIL),true)
     # Radio
     PRODUCT_PACKAGES += \
         init.carrier.rc \

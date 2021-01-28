@@ -118,9 +118,11 @@ BOARD_ROOT_EXTRA_FOLDERS := firmware firmware-modem persist efs
 BOARD_ROOT_EXTRA_SYMLINKS := /data/tombstones:/tombstones
 
 # FM
-AUDIO_FEATURE_ENABLED_FM := true
-BOARD_HAVE_QCOM_FM := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+ifeq ($(TARGET_PROVIDES_FM_RADIO),true)
+    AUDIO_FEATURE_ENABLED_FM := true
+    BOARD_HAVE_QCOM_FM := true
+    AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+endif  
 
 # GPS
 TARGET_NO_RPC := true
