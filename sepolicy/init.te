@@ -18,6 +18,6 @@ allow init wcnss_device:chr_file { open read write };
 allow init efs_file:dir mounton;
 allow init sysfs:file setattr;
 allow init system_file:file mounton;
-#allow init tmp_root_mount_file:dir mounton;
 allow init vendor_file:file execute_no_trans;
 allow init sysfs_livedisplay_tuneable:file { read write };
+allow init sysfs_livedisplay_tuneable:file open;

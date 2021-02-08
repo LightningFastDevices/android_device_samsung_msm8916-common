@@ -1,0 +1,3 @@
+#============= charger ==============
+allow charger sysfs:file read;
+allow charger sysfs:file open;

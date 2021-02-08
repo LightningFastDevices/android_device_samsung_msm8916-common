@@ -21,5 +21,5 @@ allow qti_init_shell proc_dirty:file write;
 allow qti_init_shell proc_dirty_ratio:file write;
 allow qti_init_shell proc_extra_free_kbytes:file write;
 allow qti_init_shell proc_page_cluster:file write;
-#allow qti_init_shell proc_random:file write;
-#allow qti_init_shell sysfs_io_sched_tuneable:file write;
+allow qti_init_shell proc_extra_free_kbytes:file open;
+allow qti_init_shell proc_random:file write;
