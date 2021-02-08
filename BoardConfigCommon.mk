@@ -188,6 +188,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # Power
 TARGET_USES_INTERACTION_BOOST := true
 
+# Properties
+TARGET_SYSTEM_PROP += device/samsung/msm8916-common/system.prop
+
 # Radio
 TARGET_USES_OLD_MNC_FORMAT := true
 

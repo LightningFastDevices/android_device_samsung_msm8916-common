@@ -1,0 +1,135 @@
+# Assistant
+ro.opa.eligible_device=true
+
+# Audio encoders
+qcom.hw.aac.encoder=false
+
+# Audio - Fluence
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+ro.vendor.audio.sdk.fluencetype=none
+ro.vendor.audio.sdk.ssr=false
+
+# Audio offload
+vendor.audio.offload.buffer.size.kb=32
+vendor.audio.offload.gapless.enabled=true
+audio.offload.min.duration.secs=30
+vendor.audio.offload.track.enable=true
+vendor.audio.tunnel.encode=false
+
+# Audio voice recording
+vendor.voice.path.for.pcm.voip=true
+vendor.voice.playback.conc.disabled=true
+vendor.voice.record.conc.disabled=true
+vendor.voice.voip.conc.disabled=true
+
+# Bluetooth
+bluetooth.hfp.client=1
+ro.bluetooth.dun=true
+ro.bluetooth.hfp.ver=1.7
+ro.bluetooth.sap=true
+ro.qualcomm.bt.hci_transport=smd
+vendor.bluetooth.soc=pronto
+vendor.qcom.bluetooth.soc=pronto
+
+# Boot
+sys.vendor.shutdown.waittime=500
+ro.build.shutdown_timeout=0
+
+# Camera
+camera.disable_treble=true
+camera2.portability.force_api=1
+debug.camcorder.disablemeta=true
+
+# Connectivity Engine
+persist.cne.dpm=0
+persist.cne.feature=0
+persist.dpm.feature=0
+
+# Dalvik
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=256m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=8m
+
+# Dexopt
+pm.dexopt.shared=quicken
+
+# Data modules
+persist.data.netmgrd.qos.enable=false
+ro.use_data_netmgrd=false
+
+# Graphics
+debug.sf.enable_gl_backpressure=1
+debug.composition.type=c2d
+debug.egl.hw=1
+debug.sf.hw=1
+debug.hwui.use_buffer_age=false
+
+# GPS Properties
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+ro.pip.gated=0
+
+# Media
+debug.stagefright.omx_default_rank.sw-audio=1
+debug.stagefright.omx_default_rank=0
+persist.media.treble_omx=false
+media.aac_51_output_enabled=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+media.stagefright.use-awesome=true
+media.swhevccodectype=0
+debug.stagefright.ccodec=0
+mm.enable.qcom_parser=3183219
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+
+# Misc.
+debug.mdpcomp.logs=0
+dev.pm.dyn_samplingrate=1
+persist.hwc.enable_vds=1
+persist.hwc.mdpcomp.enable=true
+persist.sys.storage_preload=1
+ro.data.large_tcp_window_size=true
+sys.disable_ext_animation=1
+
+# OEM Unlock
+ro.oem_unlock_supported=0
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
+# SAMP SPCM
+sys.config.samp_spcm_enable=true
+sys.config.spcm_db_enable=true
+sys.config.spcm_db_launcher=true
+sys.config.spcm_preload_enable=true
+
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
+
+# Vendor security patch level
+ro.lineage.build.vendor_security_patch=2021-09-01
+
+# Video encoding
+vidc.enc.narrow.searchrange=1
+
+# WiDi
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
+
+# ZRAM - Size in MB
+ro.config.zram.size=128
+
+# Time services
+persist.timed.enable=true
