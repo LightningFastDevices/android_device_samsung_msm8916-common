@@ -27,4 +27,3 @@ allow qti_init_shell proc_page_cluster:file open;
 allow qti_init_shell proc_extra_free_kbytes:file open;
 allow qti_init_shell proc_random:file write;
 allow qti_init_shell sysfs_devices_system_cpu:file setattr;
-

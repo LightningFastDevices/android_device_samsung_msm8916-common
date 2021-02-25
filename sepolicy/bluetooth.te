@@ -1,3 +1,2 @@
 #============= bluetooth ==============
 allow bluetooth gpuservice:binder call;
-
