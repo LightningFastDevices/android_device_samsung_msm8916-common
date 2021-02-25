@@ -5,4 +5,4 @@ allow system_server efs_file:dir search;
 allow system_server init:binder call;
 allow system_server vfat:dir { open read };
 allow system_server app_efs_file:dir search;
-
+allow system_server app_zygote:process getpgid;
