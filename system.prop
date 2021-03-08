@@ -115,6 +115,9 @@ sys.config.spcm_db_enable=true
 sys.config.spcm_db_launcher=true
 sys.config.spcm_preload_enable=true
 
+# GL
+ro.opengles.version=196608
+
 # Memory optimizations
 ro.vendor.qti.sys.fw.bservice_enable=true
 
