@@ -63,10 +63,11 @@ persist.data.netmgrd.qos.enable=false
 ro.use_data_netmgrd=false
 
 # Graphics
-debug.sf.enable_gl_backpressure=1
+debug.sf.disable_backpressure=1
+debug.sf.disable_hwcomposer=true
+debug.sf.hw=1
 debug.composition.type=c2d
 debug.egl.hw=1
-debug.sf.hw=1
 debug.hwui.use_buffer_age=false
 
 # GPS Properties
@@ -74,6 +75,10 @@ persist.gps.qc_nlp_in_use=1
 persist.loc.nlp_name=com.qualcomm.location
 ro.gps.agps_provider=1
 ro.pip.gated=0
+
+# HWUI
+debug.hwui.renderer=opengl
+debug.hwui.use_buffer_age=false
 
 # Media
 debug.stagefright.omx_default_rank.sw-audio=1
@@ -96,7 +101,6 @@ mmp.enable.3g2=true
 
 # Misc.
 debug.mdpcomp.logs=0
-dev.pm.dyn_samplingrate=1
 persist.hwc.enable_vds=1
 persist.hwc.mdpcomp.enable=true
 persist.sys.storage_preload=1
